@@ -15,7 +15,7 @@ class xgb_ModelTransformer(TransformerMixin):
         return self
 
     def transform(self, X, **transform_params):
-        return pd.DataFrame(self.model.predict(X), columns=[self.name + '_prediction'])
+        return pd.DataFrame(self.model.predict(X), index=X.index, columns=[self.name + '_prediction'])
 
 
 class xgb_y_log_transform_ModelTransformer(TransformerMixin):
